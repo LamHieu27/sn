@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Chúc mừng sinh nhật Linda Saliha - Trang web sinh nhật đặc biệt dành riêng cho bạn">
+    <title>🎂 Happy Birthday Linda Saliha</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== PASSWORD SCREEN ===== -->
+    <section class="pw-screen" id="pwScreen">
+        <canvas id="pwCanvas"></canvas>
+        <div class="pw-card" id="pwCard">
+            <div class="pw-icon">
+                <div class="pw-icon-ring"></div>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2Z" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    <circle cx="12" cy="16" r="1" />
+                </svg>
+            </div>
+            <h1 class="pw-title">Có điều đặc biệt<br>đang chờ bạn ✨</h1>
+            <p class="pw-sub">Nhập mật khẩu để mở quà nhé~</p>
+            <div class="pw-form">
+                <div class="pw-input-box">
+                    <input type="password" id="pwInput" placeholder="• • • •" maxlength="10" autocomplete="off">
+                    <button class="pw-submit" id="pwSubmit">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+                <p class="pw-error" id="pwError">Sai mật khẩu rồi, thử lại nha 💔</p>
+            </div>
+            <button class="pw-hint-btn" id="pwHintBtn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+                Gợi ý
+            </button>
+            <div class="pw-hints" id="pwHints">
+                <div class="pw-hint-item">🔢 Mật khẩu gồm 4 chữ số</div>
+                <div class="pw-hint-item">🎂 Liên quan đến ngày sinh nhật</div>
+                <div class="pw-hint-item">📅 Định dạng: ddmm (ngày + tháng)</div>
+                <div class="pw-hint-item">💡 Tháng 10 đó, ngày nào nhỉ~</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main" id="main">
+        <canvas id="confettiCanvas"></canvas>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+            <div class="hero-inner">
+                <span class="hero-badge anim" data-delay="0">🎉 Happy Birthday 🎉</span>
+                <h1 class="hero-name anim" data-delay="200">Linda Saliha</h1>
+                <div class="hero-cake-wrap anim" data-delay="400">
+                    <button class="hero-cake" id="heroCake" aria-label="Bấm bánh kem để nổ pháo hoa">
+                        <span class="cake-emoji">🎂</span>
+                        <span class="cake-glow"></span>
+                        <span class="cake-hint">Bấm vào mình đi~</span>
+                    </button>
+                    <div class="fireworks-container" id="fireworksContainer"></div>
+                </div>
+                <div class="hero-line anim" data-delay="500">
+                    <span></span><span></span>
+                </div>
+                <p class="hero-date anim" data-delay="600">07 · 10 · 2004 - 07 · 10 · 2026</p>
+            </div>
+            <button class="scroll-btn anim" data-delay="900"
+                onclick="document.querySelector('.wishes').scrollIntoView({behavior:'smooth'})">
+                <span>Khám phá</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+            </button>
+        </section>
+
+        <!-- Wishes -->
+        <section class="wishes">
+            <div class="container">
+                <header class="sec-head anim">
+                    <span class="sec-tag">💌 Lời chúc</span>
+                    <h2 class="sec-title">Gửi đến cổ</h2>
+                </header>
+
+                <div class="wish-card anim">
+                    <div class="wish-glow"></div>
+                    <div class="wish-body">
+                        <p><strong> Gửi Linda Saliha</strong> chị bạn của toi,</p>
+                        <p>Hôm nay là ngày đặc biệt nhất — dù hơi muộn xíu mong cổ thông cảm cho tui nhen! 🌟</p>
+                        <p>Chúc cổ tuổi mới thật nhiều niềm vui, thật nhiều tiếng cười, thật nhiều tiền và luôn tỏa
+                            sáng theo cách riêng của mình. Những gì cần chúc cũng đã chúc hết rồi💖</p>
+                        <p>Cuối cùng thì cảm ơn cổ đã luôn coi tui là một người bạn. Tui sẽ mãi trân trọng.
+                        </p>
+                        <p>Dù có gì xảy ra đi nữa thì cứ nơi nào có ánh sáng mà bước tiếp nhé! 🎀</p>
+                        <div class="wish-sign">
+                            <span>Trung Híu</span>
+                            <em>— Từ người bạn dở dở ương ương của cổ</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wish-tags anim">
+                    <span>🎈 Tuổi mới vạn sự như ý</span>
+                    <span>🌸 Xinh đẹp mãi</span>
+                    <span>💫 Luôn tỏa sáng</span>
+                    <span>🍀 May mắn</span>
+                    <span>🎵 Vui vẻ mỗi ngày</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery">
+            <div class="container">
+                <header class="sec-head anim">
+                    <span class="sec-tag">📸 Kỷ niệm</span>
+                    <h2 class="sec-title">Những khoảnh khắc nổi bật</h2>
+                    <p class="sec-sub">Nhấn vào ảnh để xem chi tiết ✨</p>
+                </header>
+                <div class="gallery-grid">
+                    <div class="g-item anim" data-idx="0">
+                        <img src="images/moment_1.jpg" alt="Lễ Tốt Nghiệp" loading="lazy">
+                        <div class="g-overlay"><span>Bông☕</span></div>
+                    </div>
+                    <div class="g-item anim" data-idx="1">
+                        <img src="images/moment_2.jpg" alt="Chỉ Tay Đồ" loading="lazy">
+                        <div class="g-overlay"><span>Hoa 🎂</span></div>
+                    </div>
+                    <div class="g-item anim" data-idx="2">
+                        <img src="images/moment_3.jpg" alt="Xoắn Tóc Chi Dạ" loading="lazy">
+                        <div class="g-overlay"><span>Xinh 🌅</span></div>
+                    </div>
+                    <div class="g-item anim" data-idx="3">
+                        <img src="images/moment_4.jpg" alt="Picnic Hả" loading="lazy">
+                        <div class="g-overlay"><span>Nhất 🌻</span></div>
+                    </div>
+                    <div class="g-item anim" data-idx="4">
+                        <img src="images/moment_5.jpg" alt="Mặt Dữ Nha" loading="lazy">
+                        <div class="g-overlay"><span>Ngày 📸</span></div>
+                    </div>
+                    <div class="g-item anim" data-idx="5">
+                        <img src="images/moment_6.jpg" alt="Bánh Ngon" loading="lazy">
+                        <div class="g-overlay"><span>Hôm nay 🎁</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with 💖 for <strong>Linda Saliha</strong></p>
+            <span class="footer-year">Happy Birthday 2026 🎂</span>
+        </footer>
+    </main>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lb" id="lb">
+        <div class="lb-backdrop" id="lbBackdrop"></div>
+        <button class="lb-close" id="lbClose" aria-label="Đóng">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
+        <button class="lb-nav lb-prev" id="lbPrev" aria-label="Trước">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6" />
+            </svg>
+        </button>
+        <button class="lb-nav lb-next" id="lbNext" aria-label="Tiếp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+            </svg>
+        </button>
+        <div class="lb-stage">
+            <img src="" alt="" id="lbImg" class="lb-img">
+            <p class="lb-caption" id="lbCaption"></p>
+        </div>
+        <div class="lb-dots" id="lbDots"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
