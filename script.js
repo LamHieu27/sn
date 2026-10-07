@@ -5,11 +5,11 @@
 
 // ——— PASSWORD ———
 const PW = '0710';
-const $pw      = id => document.getElementById(id);
-const pwInput  = $pw('pwInput');
-const pwError  = $pw('pwError');
+const $pw = id => document.getElementById(id);
+const pwInput = $pw('pwInput');
+const pwError = $pw('pwError');
 const pwScreen = $pw('pwScreen');
-const main     = $pw('main');
+const main = $pw('main');
 
 function checkPw() {
     if (pwInput.value === PW) {
@@ -38,10 +38,10 @@ $pw('pwHintBtn').addEventListener('click', () => {
     const c = $pw('pwCanvas');
     const ctx = c.getContext('2d');
     let w, h, dots = [];
-    const COLORS = ['#d4b896','#c49a6c','#dbb992','#ecd5b8'];
+    const COLORS = ['#d4b896', '#c49a6c', '#dbb992', '#ecd5b8'];
 
     function resize() {
-        w = c.width  = c.offsetWidth;
+        w = c.width = c.offsetWidth;
         h = c.height = c.offsetHeight;
     }
     function init() {
@@ -81,7 +81,7 @@ function fireConfetti() {
     const ctx = c.getContext('2d');
     c.width = innerWidth; c.height = innerHeight;
 
-    const PAL = ['#c49a6c','#dbb992','#ecd5b8','#b0845a','#d4b896','#f0dcc6','#e0c4a0'];
+    const PAL = ['#c49a6c', '#dbb992', '#ecd5b8', '#b0845a', '#d4b896', '#f0dcc6', '#e0c4a0'];
     const N = 120;
     const pieces = Array.from({ length: N }, () => ({
         x: Math.random() * c.width,
@@ -135,8 +135,8 @@ function initAnims() {
 // ——— CAKE FIREWORK ———
 const heroCake = $pw('heroCake');
 const fwContainer = $pw('fireworksContainer');
-const EMOJIS = ['🎂','🧁','🎉','🎊','🎈','🌟','✨','💫','🎀','🎁','🍰','🕯️'];
-const SPARKLE_COLORS = ['#c49a6c','#dbb992','#ecd5b8','#f0dcc6','#e8c08a','#d4a06a','#f5e0c4'];
+const EMOJIS = ['🎂', '🧁', '🎉', '🎊', '🎈', '🌟', '✨', '💫', '🎀', '🎁', '🍰', '🕯️'];
+const SPARKLE_COLORS = ['#c49a6c', '#dbb992', '#ecd5b8', '#f0dcc6', '#e8c08a', '#d4a06a', '#f5e0c4'];
 
 heroCake.addEventListener('click', fireCakeFirework);
 
@@ -181,18 +181,18 @@ function fireCakeFirework() {
 
 // ——— LIGHTBOX ———
 const images = [
-    { src: 'images/moment_1.jpg', cap: 'Cà phê & Tâm sự ☕' },
-    { src: 'images/moment_2.jpg', cap: 'Tiệc sinh nhật 🎂' },
-    { src: 'images/moment_3.jpg', cap: 'Hoàng hôn bên nhau 🌅' },
-    { src: 'images/moment_4.jpg', cap: 'Picnic ngày nắng 🌻' },
-    { src: 'images/moment_5.jpg', cap: 'Selfie cùng nhau 📸' },
-    { src: 'images/moment_6.jpg', cap: 'Trao nhau yêu thương 🎁' }
+    { src: 'images/moment_1.jpg', cap: 'Lễ Tốt Nghiệp 🌻' },
+    { src: 'images/moment_2.jpg', cap: 'Chỉ Tay Đồ 🎂' },
+    { src: 'images/moment_3.jpg', cap: 'Xoắn Tóc Chi Dạ 🌅' },
+    { src: 'images/moment_4.jpg', cap: 'Picnic Hả ☕' },
+    { src: 'images/moment_5.jpg', cap: 'Mặt Dữ Nha 📸' },
+    { src: 'images/moment_6.jpg', cap: 'Bánh Ngon 🎁' }
 ];
 let cur = 0;
-const lb      = $pw('lb');
-const lbImg   = $pw('lbImg');
-const lbCap   = $pw('lbCaption');
-const lbDots  = $pw('lbDots');
+const lb = $pw('lb');
+const lbImg = $pw('lbImg');
+const lbCap = $pw('lbCaption');
+const lbDots = $pw('lbDots');
 
 // Build dots
 images.forEach((_, i) => {
@@ -261,8 +261,8 @@ lb.addEventListener('touchend', e => {
 // Keyboard
 document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape')     closeLb();
-    if (e.key === 'ArrowLeft')  goTo((cur - 1 + images.length) % images.length);
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') goTo((cur - 1 + images.length) % images.length);
     if (e.key === 'ArrowRight') goTo((cur + 1) % images.length);
 });
 
