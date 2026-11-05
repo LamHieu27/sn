@@ -5,44 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Chúc mừng sinh nhật Linda Saliha - Trang web sinh nhật đặc biệt dành riêng cho bạn">
-    <title>🎂 Happy Birthday Linda Saliha</title>
+        content="Happy Birthday Cốt Guộc - Trang kỷ niệm và lời chúc sinh nhật dành riêng cho chiến hữu">
+    <title>⚡ HAPPY BIRTHDAY // CỐT GUỘC EDITION</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 
 <body>
 
-    <!-- ===== PASSWORD SCREEN ===== -->
+    <!-- ===== PASSWORD SCREEN (VAULT TERMINAL) ===== -->
     <section class="pw-screen" id="pwScreen">
         <canvas id="pwCanvas"></canvas>
         <div class="pw-card" id="pwCard">
+            <div class="pw-status-bar">
+                <span class="status-dot"></span>
+                <span>BROTHERHOOD VAULT</span>
+            </div>
             <div class="pw-icon">
                 <div class="pw-icon-ring"></div>
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2Z" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    <circle cx="12" cy="16" r="1" />
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 12 2 2 4-4" />
                 </svg>
             </div>
-            <h1 class="pw-title">Có điều đặc biệt<br>đang chờ bạn ✨</h1>
-            <p class="pw-sub">Nhập mật khẩu để mở quà nhé~</p>
+            <h1 class="pw-title">XÁC THỰC CHIẾN HỮU</h1>
+            <p class="pw-sub">Nhập mã PIN bí mật để mở khóa hồ sơ sinh nhật "Cốt Guộc"</p>
             <div class="pw-form">
                 <div class="pw-input-box">
-                    <input type="password" id="pwInput" placeholder="• • • •" maxlength="10" autocomplete="off">
-                    <button class="pw-submit" id="pwSubmit">
+                    <input type="password" id="pwInput" placeholder="• • • •" maxlength="10" autocomplete="off"
+                        inputmode="numeric" autofocus>
+                    <button type="button" class="pw-submit" id="pwSubmit" aria-label="Mở khóa">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
-                <p class="pw-error" id="pwError">Sai mật khẩu rồi, thử lại nha 💔</p>
+                <p class="pw-error" id="pwError">⚠ Sai mật mã chiến hữu! Thử lại xem nào bro.</p>
             </div>
             <button class="pw-hint-btn" id="pwHintBtn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -51,13 +55,11 @@
                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
                     <line x1="12" y1="17" x2="12.01" y2="17" />
                 </svg>
-                Gợi ý
+                Gợi ý mật mã
             </button>
             <div class="pw-hints" id="pwHints">
-                <div class="pw-hint-item">🔢 Mật khẩu gồm 4 chữ số</div>
-                <div class="pw-hint-item">🎂 Liên quan đến ngày sinh nhật</div>
-                <div class="pw-hint-item">📅 Định dạng: ddmm (ngày + tháng)</div>
-                <div class="pw-hint-item">💡 Tháng 10 đó, ngày nào nhỉ~</div>
+                <div class="pw-hint-item">🔢 Mã PIN gồm 4 chữ số (Mặc định: <strong>0511</strong>)</div>
+                <div class="pw-hint-item">🎂 Ngày sinh nhật của cốt guộc (ddmm)</div>
             </div>
         </div>
     </section>
@@ -66,118 +68,342 @@
     <main class="main" id="main">
         <canvas id="confettiCanvas"></canvas>
 
-        <!-- Hero -->
+        <!-- Top Sticky Navigation Bar -->
+        <header class="topbar" id="topbar">
+            <div class="container topbar-inner">
+                <div class="brand">
+                    <span class="brand-badge">VIP</span>
+                    <span class="brand-text" id="navBroName">CỐT GUỘC // BD-2026</span>
+                </div>
+                <nav class="nav-tabs" role="tablist" aria-label="Các mục sinh nhật">
+                    <button class="nav-tab active" data-tab="wishes" role="tab" aria-selected="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon points="23 7 16 12 23 17 23 7" />
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                        </svg>
+                        <span>Lời Chúc (Clips)</span>
+                        <span class="tab-count" id="clipCountBadge">6</span>
+                    </button>
+                    <button class="nav-tab" data-tab="moments" role="tab" aria-selected="false">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                        <span>Khoảnh Khắc (Ảnh)</span>
+                        <span class="tab-count" id="photoCountBadge">6</span>
+                    </button>
+                    <button class="nav-tab" data-tab="profile" role="tab" aria-selected="false">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        <span>Hồ Sơ Chiến Hữu</span>
+                    </button>
+                    <button class="nav-tab" data-tab="timeline" role="tab" aria-selected="false">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <span>Hành Trình</span>
+                    </button>
+                    <button class="nav-tab" data-tab="gift" role="tab" aria-selected="false">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 12 20 22 4 22 4 12" />
+                            <rect x="2" y="7" width="20" height="5" />
+                            <line x1="12" y1="22" x2="12" y2="7" />
+                            <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+                            <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+                        </svg>
+                        <span>Chốt Kèo & Quà</span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
         <section class="hero">
+            <div class="hero-grid-bg"></div>
             <div class="hero-bg-shapes">
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
             </div>
-            <div class="hero-inner">
-                <span class="hero-badge anim" data-delay="0">🎉 Happy Birthday 🎉</span>
-                <h1 class="hero-name anim" data-delay="200">Linda Saliha</h1>
-                <div class="hero-cake-wrap anim" data-delay="400">
-                    <button class="hero-cake" id="heroCake" aria-label="Bấm bánh kem để nổ pháo hoa">
-                        <span class="cake-emoji">🎂</span>
+
+            <div class="hero-inner container">
+                <div class="hero-meta anim" data-delay="0">
+                    <span class="hero-badge">⚡ PHẶC CUỘC EDITION ⚡</span>
+                </div>
+
+                <h1 class="hero-name anim" id="heroName" data-delay="150">CỐT GUỘC CỦA TÔI</h1>
+                <p class="hero-tagline anim" id="heroTagline" data-delay="250">
+                    "Anh em tốt không tính bằng ngày tháng, mà tính bằng những lần đồng cam cộng khổ."
+                </p>
+
+                <!-- Quick Stats Strip -->
+                <div class="hero-stats anim" data-delay="350">
+                    <div class="stat-box">
+                        <span class="stat-label">NGÀY SINH</span>
+                        <strong class="stat-val" id="heroDob">05 . 11 . 2005</strong>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-box">
+                        <span class="stat-label">CẤP ĐỘ MỚI</span>
+                        <strong class="stat-val accent">LV. 22 UNLOCKED</strong>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-box">
+                        <span class="stat-label">ĐỘ UY TÍN</span>
+                        <strong class="stat-val">-100% RESPECT</strong>
+                    </div>
+                </div>
+
+                <!-- Interactive Cheers / Toast Action -->
+                <div class="hero-cake-wrap anim" data-delay="450">
+                    <button class="hero-cake" id="heroCake" aria-label="Bấm để cụng ly chúc mừng">
+                        <div class="cheers-ring"></div>
+                        <span class="cake-emoji">🍻</span>
                         <span class="cake-glow"></span>
-                        <span class="cake-hint">Bấm vào mình đi~</span>
+                        <div class="cheers-text-wrap">
+                            <span class="cake-cta">CỤNG LY LÀ LỤM</span>
+                            <span class="cake-hint" id="cheersCounter">Đã cụng 0 ly — Đụng là cụng nha ní!</span>
+                        </div>
                     </button>
                     <div class="fireworks-container" id="fireworksContainer"></div>
                 </div>
-                <div class="hero-line anim" data-delay="500">
-                    <span></span><span></span>
-                </div>
-                <p class="hero-date anim" data-delay="600">07 · 10 · 2004 - 07 · 10 · 2026</p>
             </div>
-            <button class="scroll-btn anim" data-delay="900"
-                onclick="document.querySelector('.wishes').scrollIntoView({behavior:'smooth'})">
-                <span>Khám phá</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12l7 7 7-7" />
-                </svg>
-            </button>
         </section>
 
-        <!-- Wishes -->
-        <section class="wishes">
+        <!-- ===== CONTENT HUB (TAB PANELS) ===== -->
+        <div class="hub-wrapper" id="hubWrapper">
             <div class="container">
-                <header class="sec-head anim">
-                    <span class="sec-tag">💌 Lời chúc</span>
-                    <h2 class="sec-title">Gửi đến cổ</h2>
-                </header>
 
-                <div class="wish-card anim">
-                    <div class="wish-glow"></div>
-                    <div class="wish-body">
-                        <p><strong> Gửi Linda Saliha</strong> chị bạn của toi,</p>
-                        <p>Hôm nay là ngày đặc biệt nhất — dù hơi muộn xíu mong cổ thông cảm cho tui nhen! 🌟</p>
-                        <p>Chúc cổ tuổi mới thật nhiều niềm vui, thật nhiều tiếng cười, thật nhiều tiền và luôn tỏa
-                            sáng theo cách riêng của mình. Những gì cần chúc cũng đã chúc hết rồi💖</p>
-                        <p>Cuối cùng thì cảm ơn cổ đã luôn coi tui là một người bạn. Tui sẽ mãi trân trọng.
-                        </p>
-                        <p>Dù có gì xảy ra đi nữa thì cứ nơi nào có ánh sáng mà bước tiếp nhé! 🎀</p>
-                        <div class="wish-sign">
-                            <span>Trung Híu</span>
-                            <em>— Từ người bạn dở dở ương ương của cổ</em>
+                <!-- ==========================================
+                     TAB 1: LỜI CHÚC (VIDEO CLIPS + TÂM THƯ)
+                     ========================================== -->
+                <section class="tab-panel active" id="panel-wishes" role="tabpanel">
+                    <header class="sec-head">
+                        <span class="sec-tag">🎬 VIDEO ARCHIVE // WISHES</span>
+                        <h2 class="sec-title">CLIP LỜI CHÚC TỪ ANH EM</h2>
+                        <p class="sec-sub">Bấm vào từng clip để xem toàn màn hình và bật âm thanh</p>
+                    </header>
+
+                    <!-- Filter / Format bar -->
+                    <div class="clip-toolbar">
+                        <div class="clip-Origin-note">
+                            <span class="live-dot"></span>
+                            <span>Tuyển tập những video chúc mừng sinh nhật dâm nhất</span>
+                        </div>
+                        <button class="btn-outline-sm" id="playAllClipsBtn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                            Phát Lần Lượt Tất Cả
+                        </button>
+                    </div>
+
+                    <!-- Video Clips Grid (Rendered by JS from CONFIG.clips) -->
+                    <div class="clips-grid" id="clipsGrid"></div>
+
+                    <!-- Pinned Written Message from Best Bro -->
+                    <div class="wish-card">
+                        <div class="wish-glow"></div>
+                        <div class="wish-header">
+                            <div class="wish-author-badge">
+                                <span class="author-avatar">⚡</span>
+                                <div>
+                                    <h4>ĐÔI LỜI GỬI CỐT</h4>
+                                    <span>FROM: TRUNG HÍU(ĐẲNG CẤP TOP 1)</span>
+                                </div>
+                            </div>
+                            <span class="wish-stamp">VERIFIED BROTHERHOOD</span>
+                        </div>
+                        <div class="wish-body" id="wishLetterBody">
+                            <p><strong>Gửi thằng fen của tao,</strong></p>
+                            <p>Chúc mày tuổi mới, không lòng vòng. Đàn ông thì phải bản lĩnh,
+                                chân cứng đá mềm, đánh đâu thắng đó và "KHÔNG SỢ VỢ".</p>
+                            <p>Luôn là một người anh em đúng nghĩa — lúc vui có mặt, lúc
+                                khó không lùi. Cuộc đời thằng đàn ông không cần quá nhiều người vây quanh, chỉ cần vài
+                                thằng
+                                hiểu chuyện là đủ.</p>
+                            <p>Tuổi mới cứ mạnh dạn tiến về phía trước, mục tiêu nào đã nhắm là lụm. Anh em
+                                luôn ở phía sau và đết ủng hộ ông hết mình! Siuuuu Vamos Messi 🍻</p>
+                            <div class="wish-sign">
+                                <span>TRUNG HÍU</span>
+                                <em>— Chiến thần cân mọi mặt trận</em>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div class="wish-tags anim">
-                    <span>🎈 Tuổi mới vạn sự như ý</span>
-                    <span>🌸 Xinh đẹp mãi</span>
-                    <span>💫 Luôn tỏa sáng</span>
-                    <span>🍀 May mắn</span>
-                    <span>🎵 Vui vẻ mỗi ngày</span>
-                </div>
-            </div>
-        </section>
+                <!-- ==========================================
+                     TAB 2: KHOẢNH KHẮC (PHOTO GALLERY)
+                     ========================================== -->
+                <section class="tab-panel" id="panel-moments" role="tabpanel">
+                    <header class="sec-head">
+                        <span class="sec-tag">📸 PHOTO VAULT // MEMORIES</span>
+                        <h2 class="sec-title">NHỮNG KHOẢNH KHẮC ĐỂ ĐỜI</h2>
+                        <p class="sec-sub">Lưu trữ những bức ảnh chất nhất — Nhấn vào ảnh để phóng to</p>
+                    </header>
 
-        <!-- Gallery -->
-        <section class="gallery">
-            <div class="container">
-                <header class="sec-head anim">
-                    <span class="sec-tag">📸 Kỷ niệm</span>
-                    <h2 class="sec-title">Những khoảnh khắc nổi bật</h2>
-                    <p class="sec-sub">Nhấn vào ảnh để xem chi tiết ✨</p>
-                </header>
-                <div class="gallery-grid">
-                    <div class="g-item anim" data-idx="0">
-                        <img src="images/moment_1.jpg" alt="Lễ Tốt Nghiệp" loading="lazy">
-                        <div class="g-overlay"><span>Bông☕</span></div>
+                    <!-- Category Filter Pills -->
+                    <div class="filter-bar" id="photoFilterBar">
+                        <button class="filter-pill active" data-filter="all">Tất Cả Ảnh</button>
+                        <button class="filter-pill" data-filter="milestone">Cột Mốc Đáng Nhớ</button>
+                        <button class="filter-pill" data-filter="chill">Đi Chơi & Chill</button>
+                        <button class="filter-pill" data-filter="legend">Khoảnh Khắc Độc Quyền</button>
                     </div>
-                    <div class="g-item anim" data-idx="1">
-                        <img src="images/moment_2.jpg" alt="Chỉ Tay Đồ" loading="lazy">
-                        <div class="g-overlay"><span>Hoa 🎂</span></div>
+
+                    <!-- Photo Grid (Rendered by JS from CONFIG.photos) -->
+                    <div class="gallery-grid" id="galleryGrid"></div>
+                </section>
+
+                <!-- ==========================================
+                     TAB 3: HỒ SƠ CHIẾN HỮU (BRO STATS & BADGES)
+                     ========================================== -->
+                <section class="tab-panel" id="panel-profile" role="tabpanel">
+                    <header class="sec-head">
+                        <span class="sec-tag">🏆 BROTHERHOOD DOSSIER // STATS</span>
+                        <h2 class="sec-title">HỒ SƠ NĂNG LỰC CỐT GUỘC</h2>
+                        <p class="sec-sub">Đánh giá chỉ số chiến hữu chuẩn chỉnh không lệch phát nào</p>
+                    </header>
+
+                    <div class="profile-layout">
+                        <!-- Player Card -->
+                        <div class="player-card">
+                            <div class="player-card-top">
+                                <div class="player-ovr">
+                                    <span class="ovr-num">50</span>
+                                    <span class="ovr-pos">OVR</span>
+                                </div>
+                                <div class="player-Avatar-wrap">
+                                    <img src="images/PhuocAva.jpg" alt="Avatar Cốt Guộc" id="profileAvatar">
+                                </div>
+                            </div>
+                            <div class="player-info">
+                                <h3 id="profileCardName">CHIẾN HỮU SỐ 1</h3>
+                                <span class="player-title">CLASS: CỐT GUỘC CHÍNH HIỆU</span>
+                            </div>
+                            <div class="player-bars" id="skillBarsContainer">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Achievements / Badges Grid -->
+                        <div class="achievements-col">
+                            <h3 class="sub-heading">HUÂN CHƯƠNG ĐÃ MỞ KHÓA</h3>
+                            <div class="badges-grid" id="badgesGrid">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="g-item anim" data-idx="2">
-                        <img src="images/moment_3.jpg" alt="Xoắn Tóc Chi Dạ" loading="lazy">
-                        <div class="g-overlay"><span>Xinh 🌅</span></div>
+                </section>
+
+                <!-- ==========================================
+                     TAB 4: HÀNH TRÌNH ANH EM (TIMELINE)
+                     ========================================== -->
+                <section class="tab-panel" id="panel-timeline" role="tabpanel">
+                    <header class="sec-head">
+                        <span class="sec-tag">⏳ TIMELINE // BROTHERHOOD LOG</span>
+                        <h2 class="sec-title">DÒNG THỜI GIAN TÌNH ANH EM</h2>
+                        <p class="sec-sub">Từ những ngày đầu chạm mặt đến chiến hữu chí cốt</p>
+                    </header>
+
+                    <div class="timeline" id="timelineContainer">
+                        <!-- Populated by JS -->
                     </div>
-                    <div class="g-item anim" data-idx="3">
-                        <img src="images/moment_4.jpg" alt="Picnic Hả" loading="lazy">
-                        <div class="g-overlay"><span>Nhất 🌻</span></div>
+                </section>
+
+                <!-- ==========================================
+                     TAB 5: CHỐT KÈO & QUÀ BÍ MẬT (INTERACTIVE)
+                     ========================================== -->
+                <section class="tab-panel" id="panel-gift" role="tabpanel">
+                    <header class="sec-head">
+                        <span class="sec-tag">🎁 MYSTERY DROP // DEAL KÈO</span>
+                        <h2 class="sec-title">CHỐT KÈO SINH NHẬT HÔM NAY</h2>
+                        <p class="sec-sub">Quay chọn kèo ăn mừng hoặc mở thẻ đặc quyền dành riêng cho chủ xị</p>
+                    </header>
+
+                    <div class="gift-layout">
+                        <!-- Deal Spinner -->
+                        <div class="deal-box">
+                            <div class="deal-tag">VÒNG QUAY CHỐT KÈO</div>
+                            <h3>Hôm nay anh em đi đâu?</h3>
+                            <p>Bấm nút bên dưới để hệ thống chọn ngẫu nhiên kèo sinh nhật không được từ chối!</p>
+                            <div class="deal-screen" id="dealScreen">
+                                <span id="dealResultText">🎲 SẴN SÀNG CHỐT KÈO</span>
+                            </div>
+                            <button class="btn-primary deal-btn" id="spinDealBtn">
+                                ⚡ Quay Chốt Kèo Ngay
+                            </button>
+                        </div>
+
+                        <!-- Voucher Cards -->
+                        <div class="vouchers-box">
+                            <h3 class="sub-heading">THẺ ĐẶC QUYỀN SINH NHẬT (BẤM ĐỂ NHẬN)</h3>
+                            <div class="vouchers-grid" id="vouchersGrid">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="g-item anim" data-idx="4">
-                        <img src="images/moment_5.jpg" alt="Mặt Dữ Nha" loading="lazy">
-                        <div class="g-overlay"><span>Ngày 📸</span></div>
-                    </div>
-                    <div class="g-item anim" data-idx="5">
-                        <img src="images/moment_6.jpg" alt="Bánh Ngon" loading="lazy">
-                        <div class="g-overlay"><span>Hôm nay 🎁</span></div>
-                    </div>
-                </div>
+                </section>
+
             </div>
-        </section>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>Made with 💖 for <strong>Linda Saliha</strong></p>
-            <span class="footer-year">Happy Birthday 2026 🎂</span>
+            <div class="container footer-inner">
+                <p>DESIGNED FOR <strong>CỐT GUỘC</strong> // RESPECT & BROTHERHOOD ⚡</p>
+                <span class="footer-year">HAPPY BIRTHDAY 2026 — CHÚC TUỔI MỚI RỰC RỠ 🍻</span>
+            </div>
         </footer>
     </main>
 
-    <!-- ===== LIGHTBOX ===== -->
+    <!-- ===== VIDEO PLAYER MODAL (FOR WISH CLIPS) ===== -->
+    <div class="vmodal" id="videoModal" aria-hidden="true">
+        <div class="vmodal-backdrop" id="vmodalBackdrop"></div>
+        <div class="vmodal-dialog">
+            <div class="vmodal-header">
+                <div class="vmodal-meta">
+                    <span class="vmodal-badge" id="vmodalSender">CHIẾN HỮU</span>
+                    <h3 class="vmodal-title" id="vmodalTitle">Lời chúc sinh nhật</h3>
+                </div>
+                <div class="vmodal-actions">
+                    <button class="vmodal-nav-btn" id="vmodalPrev" title="Clip trước">◀ Clip trước</button>
+                    <button class="vmodal-nav-btn" id="vmodalNext" title="Clip tiếp">Clip tiếp ▶</button>
+                    <button class="vmodal-close" id="vmodalClose" aria-label="Đóng video">✕</button>
+                </div>
+            </div>
+            <div class="vmodal-stage">
+                <video id="vmodalVideo" controls playsinline preload="metadata"></video>
+                <!-- Fallback Simulator when user hasn't dropped mp4 file yet -->
+                <div class="vmodal-fallback" id="vmodalFallback">
+                    <canvas id="fallbackVideoCanvas"></canvas>
+                    <div class="fallback-overlay">
+                        <span class="fallback-tag">🎬 CHẾ ĐỘ XEM THỬ (DEMO CLIP)</span>
+                        <h4 id="fallbackTitle">Clip Lời Chúc #1</h4>
+                        <p id="fallbackDesc">Lời chúc từ chiến hữu</p>
+                        <div class="fallback-guide">
+                            💡 <strong>Cách chèn video thật của bạn:</strong> Bỏ file video (<code>.mp4</code>) vào thư
+                            mục <code>videos/</code> (ví dụ: <code id="fallbackPath">videos/clip_1.mp4</code>) hoặc cập
+                            nhật đường dẫn trong <code>script.js</code>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vmodal-footer">
+                <p id="vmodalQuote">"Chúc mừng sinh nhật người anh em!"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PHOTO LIGHTBOX ===== -->
     <div class="lb" id="lb">
         <div class="lb-backdrop" id="lbBackdrop"></div>
         <button class="lb-close" id="lbClose" aria-label="Đóng">
@@ -198,12 +424,15 @@
         </button>
         <div class="lb-stage">
             <img src="" alt="" id="lbImg" class="lb-img">
-            <p class="lb-caption" id="lbCaption"></p>
+            <div class="lb-meta">
+                <span class="lb-cat" id="lbCat">KHOẢNH KHẮC</span>
+                <p class="lb-caption" id="lbCaption"></p>
+            </div>
         </div>
         <div class="lb-dots" id="lbDots"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 
 </html>
